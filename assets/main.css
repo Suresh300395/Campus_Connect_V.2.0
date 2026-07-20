@@ -247,11 +247,12 @@ body::before {
 }
 
 .cc-logo {
-    max-width: 290px;
+    max-width: 200px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.02));
     margin-bottom: 20px;
+    margin-left: 60px;
 }
 
 /* Login Column (Right Side) */
@@ -279,6 +280,7 @@ body::before {
 }
 
 /* Tab Navigation */
+/* OLD TAB NAVIGATION STYLE (Commented out as requested):
 .tabs-container {
     display: flex;
     margin: 35px 35px 45px 35px;
@@ -334,6 +336,42 @@ body::before {
 
 .tab-btn:hover:not(.active) {
     background-color: rgba(0, 0, 0, 0.02);
+}
+*/
+
+/* NEW TAB NAVIGATION STYLE (Matching Image 1) */
+.tabs-container {
+    display: flex;
+    margin: 35px 35px 45px 35px;
+    gap: 20px;
+    background-color: transparent;
+    align-items: center;
+}
+
+.tab-btn {
+    flex: 1;
+    border: 1px solid var(--primary-blue);
+    background-color: #f8f9fa;
+    padding: 9px 5px;
+    font-family: var(--font-stem);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-dark);
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-weight: 500;
+    border: 1px solid var(--primary-blue);
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: #e9ecef;
 }
 
 /* Form Styles */
@@ -571,9 +609,11 @@ body::before {
     }
 
     .cc-logo {
-        width: clamp(110px, 35vw, 150px);
+        width: clamp(70px, 35vw, 100px);
         height: auto;
         margin-bottom: 0;
+        margin-left: 60px;
+
     }
 
     .login-column {
@@ -589,7 +629,8 @@ body::before {
 
     .tabs-container {
         margin: 15px 20px 15px 20px;
-        padding: 5px;
+        /* padding: 5px; */
+        gap: 12px;
     }
 
     .login-form {
