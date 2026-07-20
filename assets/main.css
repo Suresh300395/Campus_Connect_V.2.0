@@ -1,0 +1,657 @@
+/* Stem Font */
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-Bold.woff2') format('woff2'),
+        url('fonts/stem/Stem-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-ExtraLight.woff2') format('woff2'),
+        url('fonts/stem/Stem-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-BoldItalic.woff2') format('woff2'),
+        url('fonts/stem/Stem-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-ExtraLightItalic.woff2') format('woff2'),
+        url('fonts/stem/Stem-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-Italic.woff2') format('woff2'),
+        url('fonts/stem/Stem-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-Light.woff2') format('woff2'),
+        url('fonts/stem/Stem-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-LightItalic.woff2') format('woff2'),
+        url('fonts/stem/Stem-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-Medium.woff2') format('woff2'),
+        url('fonts/stem/Stem-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-MediumItalic.woff2') format('woff2'),
+        url('fonts/stem/Stem-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-Regular.woff2') format('woff2'),
+        url('fonts/stem/Stem-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stem';
+    src: url('fonts/stem/Stem-Thin.woff2') format('woff2'),
+        url('fonts/stem/Stem-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Segoe UI Font */
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/segoe/Segoe UI.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/segoe/Segoe UI Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Define Design Variables */
+:root {
+    --font-segoe: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    --font-stem: 'Stem', sans-serif;
+    --primary-blue: #0B5299;
+    --primary-hover: #0B233B;
+    --accent-orange: #CF6C38;
+    --accent-gold: #BE9337;
+    --bg-light: #f8f8f8;
+    --text-dark: #000000;
+    --text-muted: #666666;
+    --border-gray: #a0a0a0;
+    --input-focus: var(--primary-blue);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-segoe);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 75px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 75px);
+    background-image: url('images/Background.png');
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Top Accent Bar */
+.top-accent-bar {
+    height: 4px;
+    background-color: var(--accent-orange);
+    width: 100%;
+}
+
+/* Header */
+.site-header {
+    background-color: var(--bg-light);
+    box-shadow: none;
+    width: 100%;
+    z-index: 10;
+}
+
+.header-container {
+    max-width: min(1755px, 82vw);
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-logo {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-desktop {
+    display: block;
+}
+
+.logo-mobile {
+    display: none;
+}
+
+/* Main Container Layout */
+.page-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: min(1755px, 82vw);
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 15px;
+    z-index: 5;
+}
+
+.grid-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Branding Column (Left Side) */
+.branding-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 380px;
+}
+
+.branding-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.cc-logo {
+    max-width: 290px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.02));
+    margin-bottom: 20px;
+}
+
+/* Login Column (Right Side) */
+.login-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 380px;
+}
+
+/* Login Card */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 390px;
+    border-radius: 0px;
+    box-shadow: none;
+    position: relative;
+    padding-bottom: 5px;
+    /* for the accent bar */
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+/* Tab Navigation */
+.tabs-container {
+    display: flex;
+    margin: 35px 35px 45px 35px;
+    border: 1px solid #000000;
+    border-radius: 0px;
+    padding: 5px;
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.tab-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 7px 5px;
+    font-family: var(--font-stem);
+    font-size: 15px;
+    font-weight: 400 !important;
+    color: var(--text-dark);
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+    border-radius: 0px;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--primary-blue);
+    transform: translateX(-102%);
+    transition: transform 0.4s cubic-bezier(0.56, 0, 0, 0.99);
+}
+
+.tab-btn:not(:last-child) {
+    border-right: none;
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    font-weight: 500 !important;
+}
+
+.tab-btn.active::after {
+    transform: translateX(0);
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Form Styles */
+.login-form {
+    padding: 10px 35px 35px 35px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #c8c8c8;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s ease;
+}
+
+.form-group:focus-within {
+    border-bottom: 1px solid var(--accent-orange);
+}
+
+/* Input Fields */
+.form-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 0px;
+    font-family: var(--font-segoe);
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+/* Padding adjustments for input icons */
+.form-group:has(.icon-left) .form-input {
+    padding-left: 35px;
+}
+
+.form-group:has(.icon-right) .form-input {
+    padding-right: 35px;
+}
+
+/* Floating Labels */
+.form-label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-size: 14px;
+    color: #999999;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.form-group:has(.icon-left) .form-label {
+    left: 35px;
+}
+
+/* Float logic */
+.form-input:focus~.form-label,
+.form-input:not(:placeholder-shown)~.form-label {
+    top: -12px;
+    font-size: 11px;
+    color: var(--accent-orange);
+}
+
+/* Icons */
+.field-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-left {
+    left: 0;
+}
+
+.icon-right {
+    right: 0;
+    cursor: pointer;
+}
+
+.input-svg-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.4;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Show native icon color only when focused/active */
+.form-group:focus-within .input-svg-icon {
+    filter: none;
+    opacity: 1;
+}
+
+/* Form Action Button */
+.form-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.submit-btn {
+    position: relative;
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    border: none;
+    padding: 8px 28px;
+    font-family: var(--font-stem);
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.submit-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: -1;
+    background-color: #000000;
+    opacity: 0.3;
+    transform: translateX(-102%);
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.56, 0, 0, 0.99);
+    transition-duration: 0.6s;
+}
+
+.submit-btn:hover::after {
+    transform: translateX(0);
+    transition-duration: 1s;
+}
+
+/* Bottom Card Accent Bar */
+.card-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to left, #0B5299 0% 22.8%, #CF6C38 22.8% 51.9%, #BE9337 51.9% 85.9%, #0B233B 85.9% 100%);
+}
+
+/* Footer Links */
+.footer-left {
+    margin-top: auto;
+    padding-top: 50px;
+}
+
+.footer-right {
+    margin-top: 45px;
+    width: 100%;
+    max-width: 440px;
+    text-align: right;
+}
+
+.footer-link {
+    font-family: var(--font-stem);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--primary-hover);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.mobile-terms-link {
+    display: none;
+}
+
+/* Responsive Rules - Bootstrap Breakpoints (xs, sm, md: < 992px) */
+@media (max-width: 991.98px) {
+    body::before {
+        top: 60px;
+        bottom: 0;
+        height: calc(100vh - 60px);
+        background-size: contain;
+        background-position: bottom center;
+    }
+
+    .top-accent-bar {
+        display: none;
+    }
+
+    .site-header {
+        position: sticky;
+        top: 0;
+    }
+
+    .header-container {
+        padding: 12px 15px;
+        justify-content: center;
+    }
+
+    .logo-desktop {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: block;
+        width: clamp(140px, 45vw, 190px);
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .page-container {
+        max-width: 100%;
+        width: 100%;
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    .grid-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .branding-column {
+        min-height: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .branding-wrapper {
+        margin-bottom: 10px;
+    }
+
+    .cc-logo {
+        width: clamp(110px, 35vw, 150px);
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .login-column {
+        align-items: stretch;
+        min-height: auto;
+        width: 100%;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tabs-container {
+        margin: 15px 20px 15px 20px;
+        padding: 5px;
+    }
+
+    .login-form {
+        padding: 10px 25px 30px 25px;
+    }
+
+    .footer-left {
+        display: none;
+    }
+
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+
+    .mobile-terms-link {
+        display: block;
+    }
+}
+
+/* Extra Small Devices (xs: < 576px) */
+@media (max-width: 575.98px) {
+    .page-container {
+        padding: 10px;
+    }
+
+    .tabs-container {
+        margin: 15px 10px 15px 10px;
+    }
+
+    .login-form {
+        padding: 10px 15px 25px 15px;
+    }
+}
+
+/* Custom Validation Error Styles */
+.error-text {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    font-family: var(--font-stem);
+    font-size: 11px;
+    color: #ff3333;
+    display: none;
+}
+
+.form-group.has-error {
+    border-bottom: 1px solid #ff3333 !important;
+}
+
+.form-group.has-error .form-label {
+    color: #ff3333 !important;
+}
+
+.form-group.has-error .error-text {
+    display: block;
+}

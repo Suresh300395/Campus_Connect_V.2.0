@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUS | Campus Connect</title>
+    <link rel="icon" type="image/png" href="assets/images/Circle_logo_gold.png">
+    <!-- Local fonts loaded in main.css -->
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+
+<body>
+    <!-- Top colored decorative bar -->
+    <div class="top-accent-bar"></div>
+
+    <!-- Header containing Aditya University NAAC logo -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="https://www.adityauniversity.in/" class="logo-link">
+                <img src="assets/images/New website Logo with acc.png" alt="Aditya University Logo" class="site-logo logo-desktop">
+                <img src="assets/images/Aditya University Gold Logo.png" alt="Aditya University Logo" class="site-logo logo-mobile">
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="page-container">
+        <div class="grid-content">
+            <!-- Left Side: Campus Connect Branding -->
+            <div class="branding-column">
+                <div class="branding-wrapper">
+                    <img src="assets/images/cc.png" alt="Campus Connect Logo" class="cc-logo">
+                </div>
+                <div class="footer-left">
+                    <a href="https://info.aec.edu.in/aus/terms.html" class="footer-link">Terms and Conditions</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Login Panel -->
+            <div class="login-column">
+                <div class="login-card">
+                    <!-- Tab selectors -->
+                    <div class="tabs-container">
+                        <button class="tab-btn active" data-tab="parent">Parent</button>
+                        <button class="tab-btn" data-tab="student">Student</button>
+                        <button class="tab-btn" data-tab="employee">Employee</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form class="login-form" id="loginForm" autocomplete="off" novalidate>
+                        <!-- Username Field -->
+                        <div class="form-group" id="usernameGroup">
+                            <input type="text" id="username" class="form-input" placeholder=" " maxlength="15" required>
+                            <label for="username" id="usernameLabel" class="form-label">Student ID</label>
+                            <span class="field-icon icon-right">
+                                <img src="assets/images/person.svg" alt="User icon" class="input-svg-icon icon-orange">
+                            </span>
+                            <div class="error-text" id="usernameError"></div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group" id="passwordGroup">
+                            <input type="password" id="password" class="form-input" placeholder=" " required>
+                            <label for="password" class="form-label">Password</label>
+                            <span class="field-icon icon-right" id="passwordToggle">
+                                <img src="assets/images/lock.svg" alt="Lock icon" class="input-svg-icon icon-green"
+                                    id="lockIcon">
+                            </span>
+                            <div class="error-text" id="passwordError"></div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-action">
+                            <button type="submit" class="submit-btn">Login</button>
+                        </div>
+                    </form>
+
+                    <!-- Bottom Accent Bar inside the card -->
+                    <div class="card-bottom-bar"></div>
+                </div>
+                <div class="footer-right">
+                    <a href="https://info.aec.edu.in/aus/terms.html" class="footer-link mobile-terms-link">Terms and Conditions</a>
+                    <a href="https://info.aec.edu.in/aus/olpayment.aspx" class="footer-link">Online payment without login</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript to handle active tab states and dynamic labeling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const usernameLabel = document.getElementById('usernameLabel');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const lockIcon = document.getElementById('lockIcon');
+
+            const usernameGroup = document.getElementById('usernameGroup');
+            const passwordGroup = document.getElementById('passwordGroup');
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+            const loginForm = document.getElementById('loginForm');
+
+            // Define label and maxlength configuration for each tab
+            const tabConfigurations = {
+                parent: {
+                    label: 'Student ID',
+                    maxlength: 15
+                },
+                student: {
+                    label: 'Student ID',
+                    maxlength: 15
+                },
+                employee: {
+                    label: 'Emp ID',
+                    maxlength: 10
+                }
+            };
+
+            let currentTab = 'parent';
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Toggle active state
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // Update label and maxlength based on configuration
+                    const tabKey = tab.getAttribute('data-tab');
+                    currentTab = tabKey;
+                    const config = tabConfigurations[tabKey];
+                    if (config) {
+                        usernameLabel.textContent = config.label;
+                        usernameInput.setAttribute('maxlength', config.maxlength);
+                    }
+
+                    // Clear fields and error states, and focus username
+                    usernameInput.value = '';
+                    passwordInput.value = '';
+                    passwordInput.type = 'password';
+                    usernameGroup.classList.remove('has-error');
+                    passwordGroup.classList.remove('has-error');
+                    usernameError.textContent = '';
+                    passwordError.textContent = '';
+                    usernameInput.focus();
+                    lockIcon.src = 'assets/images/lock.svg';
+                });
+            });
+
+            // Toggle password visibility on lock icon click
+            const passwordToggle = document.getElementById('passwordToggle');
+            passwordToggle.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    lockIcon.src = 'assets/images/inlock.svg';
+                } else {
+                    passwordInput.type = 'password';
+                    lockIcon.src = 'assets/images/lock.svg';
+                }
+            });
+
+            // Restrict input types based on active tab
+            usernameInput.addEventListener('keydown', (e) => {
+                const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'];
+                if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) return;
+
+                if (currentTab === 'employee') {
+                    // Only digits allowed for Employee
+                    if (!/^\d$/.test(e.key)) {
+                        e.preventDefault();
+                    }
+                } else {
+                    // Alphanumeric allowed for Parent and Student
+                    if (!/^[a-zA-Z0-9]$/.test(e.key)) {
+                        e.preventDefault();
+                    }
+                }
+            });
+
+            usernameInput.addEventListener('input', () => {
+                if (currentTab === 'employee') {
+                    // Strip non-digits and cap at 10 numbers
+                    usernameInput.value = usernameInput.value.replace(/\D/g, '').slice(0, 10);
+                } else {
+                    // Strip non-alphanumeric and cap at 15 chars
+                    usernameInput.value = usernameInput.value.replace(/[^a-zA-Z0-9]/g, '').slice(0, 15);
+                }
+                usernameGroup.classList.remove('has-error');
+                usernameError.textContent = '';
+            });
+            // Restrict password input to alphabets, numbers, and allowed symbols: !@#$%^&*()_-+=?.,
+            passwordInput.addEventListener('keydown', (e) => {
+                const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'];
+                if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) return;
+
+                const allowedSymbolRegex = /^[a-zA-Z0-9!@#$%^&*()_\-+=\?.,]$/;
+                if (!allowedSymbolRegex.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+
+            passwordInput.addEventListener('input', () => {
+                passwordInput.value = passwordInput.value.replace(/[^a-zA-Z0-9!@#$%^&*()_\-+=\?.,]/g, '');
+                passwordGroup.classList.remove('has-error');
+                passwordError.textContent = '';
+            });
+
+            // Handle custom form validation on submit (Button click or Enter key)
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+                const usernameVal = usernameInput.value.trim();
+                const passwordVal = passwordInput.value;
+                const currentLabel = usernameLabel.textContent;
+
+                // Validate Username
+                if (!usernameVal) {
+                    usernameError.textContent = `${currentLabel} required`;
+                    usernameGroup.classList.add('has-error');
+                    isValid = false;
+                } else if (currentTab === 'employee') {
+                    // Employee validation: Numbers only
+                    if (!/^\d+$/.test(usernameVal)) {
+                        usernameError.textContent = `${currentLabel} must contain numbers only`;
+                        usernameGroup.classList.add('has-error');
+                        isValid = false;
+                    }
+                } else {
+                    // Parent & Student validation: Alphanumeric (letters and numbers only)
+                    if (!/^[a-zA-Z0-9]+$/.test(usernameVal)) {
+                        usernameError.textContent = `${currentLabel} must be alphanumeric`;
+                        usernameGroup.classList.add('has-error');
+                        isValid = false;
+                    }
+                }
+
+                // Validate Password
+                if (!passwordVal) {
+                    passwordError.textContent = 'Password required';
+                    passwordGroup.classList.add('has-error');
+                    isValid = false;
+                } else if (!/^[a-zA-Z0-9!@#$%^&*()_\-+=\?.,]+$/.test(passwordVal)) {
+                    passwordError.textContent = 'Invalid password format';
+                    passwordGroup.classList.add('has-error');
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    // Focus first field with an error
+                    if (usernameGroup.classList.contains('has-error')) {
+                        usernameInput.focus();
+                    } else if (passwordGroup.classList.contains('has-error')) {
+                        passwordInput.focus();
+                    }
+                } else {
+                    // Successful login action
+                    alert(`Login Successful!\nRole: ${currentTab.toUpperCase()}\nUser: ${usernameVal}`);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
