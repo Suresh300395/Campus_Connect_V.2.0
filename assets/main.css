@@ -174,10 +174,12 @@ body::before {
 
 /* Header */
 .site-header {
+    position: sticky;
+    top: 0;
     background-color: var(--bg-light);
     box-shadow: none;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
 }
 
 .header-container {
@@ -252,7 +254,7 @@ body::before {
     object-fit: contain;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.02));
     margin-bottom: 20px;
-    margin-left: 60px;
+    margin-left: 100px;
 }
 
 /* Login Column (Right Side) */
@@ -612,8 +614,8 @@ body::before {
         width: clamp(70px, 35vw, 100px);
         height: auto;
         margin-bottom: 0;
-        margin-left: 60px;
-
+        margin-left: 0;
+        margin: 0 auto;
     }
 
     .login-column {
