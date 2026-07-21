@@ -156,11 +156,10 @@ body::before {
     right: 0;
     width: 100%;
     height: calc(100vh - 75px);
-    /* background-image: url('images/Background.webp'); */
-    background-image: url('images/Background.png');
-    background-size: contain;
-    background-position: bottom center;
-    background-repeat: no-repeat;
+    background-image: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 45%), url('images/Background.png');
+    background-size: contain, contain;
+    background-position: bottom center, bottom center;
+    background-repeat: no-repeat, no-repeat;
     opacity: 0.5;
     z-index: 0;
     pointer-events: none;
@@ -738,8 +737,15 @@ body::after {
         top: 60px;
         bottom: 0;
         height: calc(100vh - 60px);
-        background-size: contain;
-        background-position: bottom center;
+        background-image: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 55%), url('images/Background.png');
+        background-size: contain, contain;
+        background-position: bottom center, bottom center;
+        background-repeat: no-repeat, no-repeat;
+    }
+
+    body::after {
+        height: 100px;
+        background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0) 100%);
     }
 
     .top-accent-bar {
@@ -910,6 +916,11 @@ body::after {
 
 /* Extra Small Devices (xs: < 576px) */
 @media (max-width: 575.98px) {
+    body::after {
+        height: 75px;
+        background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0) 100%);
+    }
+
     .page-container {
         padding: 10px;
     }
