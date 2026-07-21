@@ -314,6 +314,20 @@
                     alert(`Login Successful!\nRole: ${currentTab.toUpperCase()}\nUser: ${usernameVal}`);
                 }
             });
+
+            // Hide header on scroll down, show on scroll up
+            let lastScrollY = window.scrollY;
+            const siteHeader = document.querySelector('.site-header');
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 50 && currentScrollY > lastScrollY) {
+                    siteHeader.classList.add('header-hidden');
+                } else {
+                    siteHeader.classList.remove('header-hidden');
+                }
+                lastScrollY = currentScrollY;
+            }, { passive: true });
         });
     </script>
 </body>
