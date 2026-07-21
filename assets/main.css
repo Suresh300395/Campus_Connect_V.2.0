@@ -342,6 +342,11 @@ body::before {
 .stat-icon-svg {
     width: 22px;
     height: 22px;
+    min-width: 22px;
+    max-width: 22px;
+    min-height: 22px;
+    max-height: 22px;
+    flex-shrink: 0;
     fill: none;
     stroke: var(--accent-gold, #BE9337);
     color: var(--accent-gold, #BE9337);
@@ -814,6 +819,10 @@ body::before {
 
     .stats-card {
         order: 4;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-around !important;
         margin-top: 16px;
         padding: 12px 6px;
         border-radius: 0;
@@ -836,12 +845,21 @@ body::before {
     }
 
     .stat-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        flex: 1 !important;
         padding: 0 4px;
     }
 
     .stat-icon-svg {
-        width: 18px;
-        height: 18px;
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        max-width: 18px !important;
+        min-height: 18px !important;
+        max-height: 18px !important;
+        flex-shrink: 0 !important;
         margin-bottom: 4px;
     }
 
