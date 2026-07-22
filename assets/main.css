@@ -869,7 +869,8 @@ body::after {
     .login-card {
         order: 3;
         width: 100%;
-        max-width: 100%;
+        max-width: 390px;
+        margin: 0 auto;
     }
 
     .stats-card {
@@ -878,13 +879,13 @@ body::after {
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-around !important;
-        margin-top: 16px;
+        margin: 16px auto 0 auto;
         padding: 12px 6px;
         border-radius: 6px;
         background: #ffffff;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
         border: 1px solid rgba(0, 0, 0, 0.05);
-        max-width: 100%;
+        max-width: 390px;
         width: 100%;
     }
 
