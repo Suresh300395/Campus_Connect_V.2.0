@@ -156,15 +156,16 @@ body::before {
     right: 0;
     width: 100%;
     height: calc(100vh - 75px);
-    background-image: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 5%), url('images/Background.webp');
-    background-size: contain, contain;
-    background-position: bottom center, bottom center;
-    background-repeat: no-repeat, no-repeat;
-    opacity: 0.3;
+    background-image: url('images/new_CC.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0.7;
     z-index: 0;
     pointer-events: none;
 }
 
+/*
 body::after {
     content: '';
     position: fixed;
@@ -176,17 +177,17 @@ body::after {
     z-index: 1;
     pointer-events: none;
 }
+*/
 
-/* Wide Screen Left & Right Edge Fading */
+/* Wide Screen Left & Right Edge Fading Disabled
 @media (min-width: 1200px) {
     body::before {
         background-image:
             linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 12%, rgba(255, 255, 255, 0) 88%, #ffffff 100%),
-            linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 15%),
-            url('images/Background.webp');
-        background-size: 100% 100%, 100% 100%, contain;
-        background-position: center center, bottom center, bottom center;
-        background-repeat: no-repeat, no-repeat, no-repeat;
+            url('images/new_CC.png');
+        background-size: 100% 100%, contain;
+        background-position: center center, center top;
+        background-repeat: no-repeat, no-repeat;
     }
 }
 
@@ -194,11 +195,10 @@ body::after {
     body::before {
         background-image:
             linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 82%, #ffffff 100%),
-            linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 15%),
-            url('images/Background.webp');
-        background-size: 100% 100%, 100% 100%, contain;
-        background-position: center center, bottom center, bottom center;
-        background-repeat: no-repeat, no-repeat, no-repeat;
+            url('images/new_CC.png');
+        background-size: 100% 100%, contain;
+        background-position: center center, center top;
+        background-repeat: no-repeat, no-repeat;
     }
 }
 
@@ -206,13 +206,13 @@ body::after {
     body::before {
         background-image:
             linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%, #ffffff 100%),
-            linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 15%),
-            url('images/Background.webp');
-        background-size: 100% 100%, 100% 100%, contain;
-        background-position: center center, bottom center, bottom center;
-        background-repeat: no-repeat, no-repeat, no-repeat;
+            url('images/new_CC.png');
+        background-size: 100% 100%, contain;
+        background-position: center center, center top;
+        background-repeat: no-repeat, no-repeat;
     }
 }
+*/
 
 /* Top Accent Bar */
 .top-accent-bar {
@@ -814,16 +814,18 @@ body::after {
         top: 60px;
         bottom: 0;
         height: calc(100vh - 60px);
-        background-image: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 55%), url('images/Background.webp');
-        background-size: contain, contain;
-        background-position: bottom center, bottom center;
-        background-repeat: no-repeat, no-repeat;
+        background-image: url('images/new_CC.png');
+        background-size: contain;
+        background-position: center bottom;
+        background-repeat: no-repeat;
     }
 
+    /*
     body::after {
         height: 130px;
         background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
     }
+    */
 
     .top-accent-bar {
         display: none;
